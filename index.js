@@ -1,11 +1,12 @@
-const express = require('express')
-const { default: registrationController } = require('./controllers/registrationController')
+const express = require("express");
+const registrationController = require("./controllers/registrationController");
 
-const app = express()
+const app = express();
+app.use(express.json());
 
-app.post('/registration', registrationController)
+app.post("/registration", registrationController);
 
-app.listen('8000', () => {
-  console.log('server is running on port 8000')
-})
-
+const PORT = 7000;
+app.listen(PORT, () => {
+  console.log("server is running on port", PORT);
+});
